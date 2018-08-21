@@ -20,6 +20,7 @@ import org.apereo.cas.config.CasCoreWebConfiguration;
 import org.apereo.cas.config.CasJdbcThrottlingConfiguration;
 import org.apereo.cas.config.CasPersonDirectoryConfiguration;
 import org.apereo.cas.config.CasRegisteredServicesTestConfiguration;
+import org.apereo.cas.config.CasThrottlingConfiguration;
 import org.apereo.cas.config.support.CasWebApplicationServiceFactoryConfiguration;
 import org.apereo.cas.logout.config.CasCoreLogoutConfiguration;
 
@@ -34,6 +35,7 @@ import org.springframework.test.context.TestPropertySource;
  * @since 3.0.0
  */
 @SpringBootTest(classes = {
+    CasThrottlingConfiguration.class,
     CasJdbcThrottlingConfiguration.class,
     CasCoreAuditConfiguration.class,
     CasCoreConfiguration.class,
