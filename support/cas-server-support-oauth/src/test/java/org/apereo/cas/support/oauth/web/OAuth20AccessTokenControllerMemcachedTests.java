@@ -5,10 +5,12 @@ import org.apereo.cas.config.MemcachedTicketRegistryConfiguration;
 import org.apereo.cas.ticket.code.OAuthCode;
 import org.apereo.cas.ticket.registry.MemcachedTicketRegistry;
 import org.apereo.cas.util.junit.ConditionalIgnore;
-import org.apereo.cas.util.junit.NoOpCondition;
+import org.apereo.cas.util.junit.ConditionalIgnoreRule;
+import org.apereo.cas.util.junit.RunningContinuousIntegrationCondition;
 
 import lombok.val;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.springframework.context.annotation.Import;
@@ -30,8 +32,11 @@ import static org.junit.Assert.*;
     "cas.ticket.registry.memcached.hashAlgorithm=FNV1A_64_HASH"
 })
 @Category(MemcachedCategory.class)
-@ConditionalIgnore(condition = NoOpCondition.class, port = 11211)
+@ConditionalIgnore(condition = RunningContinuousIntegrationCondition.class, port = 11211)
 public class OAuth20AccessTokenControllerMemcachedTests extends AbstractOAuth20Tests {
+
+    @Rule
+    public final ConditionalIgnoreRule conditionalIgnoreRule = new ConditionalIgnoreRule();
 
     @Before
     public void initialize() {
