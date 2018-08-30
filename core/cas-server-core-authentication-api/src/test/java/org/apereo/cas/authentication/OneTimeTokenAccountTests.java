@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
  * This is {@link OneTimeTokenAccountTests}.
  *
  * @author Misagh Moayyed
- * @since 6.0.0
+ * @since 5.3.4
  */
 public class OneTimeTokenAccountTests {
 
